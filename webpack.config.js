@@ -55,7 +55,7 @@ module.exports = ({production, myAppUrl} = envDefaults) => ({
 	},
 	plugins: [
 		new ModuleFederationPlugin({
-			name: 'my_app',
+			name: 'header',
 			filename: 'remoteEntry.js',
 			remotes: {
 				'my-app': `my_app@${myAppUrl}`
