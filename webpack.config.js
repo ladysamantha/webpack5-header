@@ -7,8 +7,13 @@ const path = require('path');
 
 const deps = require('./package.json').dependencies;
 
+const envDefaults = {
+	production: false,
+	myAppUrl: 'http://localhost:3000/remoteEntry.js'
+};
+
 /** @type {import('webpack').Configuration} */
-module.exports = ({production} = {production: false}) => ({
+module.exports = ({production, myAppUrl} = envDefaults) => ({
 	entry: './src/index.js',
 	output: {
 		publicPath: 'auto',
@@ -18,7 +23,7 @@ module.exports = ({production} = {production: false}) => ({
 	mode: production ? 'production' : 'development',
 	devServer: {
 		contentBase: path.join(__dirname, 'build'),
-		port: Number.parseInt(process.env.PORT, 10) || 3000,
+		port: Number.parseInt(process.env.PORT, 10) || 3001,
 		headers: {
 			'Access-Control-Allow-Origin': '*',
 			'Access-Control-Allow-Methods': 'GET, POST, PUT, DELETE, PATCH, OPTIONS',
@@ -53,9 +58,10 @@ module.exports = ({production} = {production: false}) => ({
 			name: 'my_app',
 			filename: 'remoteEntry.js',
 			remotes: {
-				'my-app': 'my_app@http://localhost:3000/remoteEntry.js'
+				'my-app': `my_app@${myAppUrl}`
 			},
 			exposes: {
+				'./Header': './src/Header'
 			},
 			shared: [
 				{

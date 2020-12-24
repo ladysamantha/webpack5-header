@@ -61,6 +61,7 @@
 			}
 		},
 		"rules": {
+			"react/prop-types": 0,
 			"unicorn/filename-case": 0
 		}
 	}
