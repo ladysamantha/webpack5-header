@@ -1,0 +1,67 @@
+{
+	"name": "@sammiio/webpack5-template",
+	"version": "0.0.1",
+	"description": "A React app template with Webpack 5",
+	"main": "build/index.js",
+	"private": true,
+	"scripts": {
+		"test": "jest",
+		"lint": "xo",
+		"build": "webpack",
+		"dev": "webpack serve"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/silver-panda/webpack5-template.git"
+	},
+	"keywords": [
+		"webpack",
+		"react"
+	],
+	"author": "silver-panda <based_kirby@yandex.com>",
+	"license": "GPL-3.0",
+	"bugs": {
+		"url": "https://github.com/silver-panda/webpack5-template/issues"
+	},
+	"homepage": "https://github.com/silver-panda/webpack5-template#readme",
+	"dependencies": {
+		"react": "^17.0.1",
+		"react-dom": "^17.0.1"
+	},
+	"devDependencies": {
+		"@babel/core": "^7.12.10",
+		"@babel/preset-env": "^7.12.11",
+		"@babel/preset-react": "^7.12.10",
+		"@testing-library/jest-dom": "^5.11.6",
+		"@testing-library/react": "^11.2.2",
+		"babel-jest": "^26.6.3",
+		"babel-loader": "^8.2.2",
+		"eslint-config-xo-react": "^0.23.0",
+		"eslint-plugin-react": "^7.21.5",
+		"eslint-plugin-react-hooks": "^4.2.0",
+		"html-webpack-plugin": "^4.5.0",
+		"jest": "^26.6.3",
+		"webpack": "^5.11.0",
+		"webpack-cli": "^4.2.0",
+		"webpack-dev-server": "^3.11.0",
+		"xo": "^0.36.1"
+	},
+	"xo": {
+		"extends": "xo-react",
+		"envs": [
+			"es2020",
+			"node",
+			"browser",
+			"jest"
+		],
+		"settings": {
+			"import/resolver": {
+				"node": {},
+				"webpack": {}
+			}
+		},
+		"rules": {
+			"unicorn/filename-case": 0
+		}
+	}
+}
